@@ -1,0 +1,614 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Azure Resource Health - 1.0.0",
+      "description": "Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources, it reports on the current and past health of your resources.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Azure",
+        "azure-resource-health"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "12ea080d-172c-4877-9489-dcfb9f23bea3",
+          "collection": "/api/3/workflow_collections/de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+          "triggerLimit": null,
+          "description": "Retrieves current availability status for a single resource from Azure Resource Health",
+          "name": "Get Availability Status",
+          "tag": "#Azure Resource Health",
+          "recordTags": [
+            "Azure",
+            "azure-resource-health"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6ca71509-f898-4c01-9a2e-5842c33d2afb",
+          "steps": [
+            {
+              "uuid": "6ca71509-f898-4c01-9a2e-5842c33d2afb",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "deb5b15d-1346-4ff0-abbc-0da5aea2a0e3",
+                "title": "Azure Resource Health: Get Availability Status",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "dfa67a72-72e4-4c22-a7c6-df98a6f64c42",
+              "@type": "WorkflowStep",
+              "name": "Get Availability Status",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Azure Resource Health",
+                "config": "''",
+                "params": {
+                  "subscription_id": "",
+                  "resource_group_name": "",
+                  "resource_provider_name": "",
+                  "resource_type": "",
+                  "resource_name": "",
+                  "filter": ""
+                },
+                "version": "1.0.0",
+                "connector": "azure-resource-health",
+                "operation": "get_availability_status",
+                "operationTitle": "Get Availability Status",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "1c2d9708-6eee-4740-b4ac-02a7c0264877",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Availability Status",
+              "sourceStep": "/api/3/workflow_steps/6ca71509-f898-4c01-9a2e-5842c33d2afb",
+              "targetStep": "/api/3/workflow_steps/dfa67a72-72e4-4c22-a7c6-df98a6f64c42"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "77f542e5-4945-4799-b875-cd3316baf6df",
+          "collection": "/api/3/workflow_collections/de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+          "triggerLimit": null,
+          "description": "Retrieves list of historical availability transitions and impacting events for a single resource from Azure Resource Health",
+          "name": "Get Availability Transitions List",
+          "tag": "#Azure Resource Health",
+          "recordTags": [
+            "Azure",
+            "azure-resource-health"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/f3a44033-7d8b-49fb-9f33-2f8d6200117d",
+          "steps": [
+            {
+              "uuid": "f3a44033-7d8b-49fb-9f33-2f8d6200117d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "7a907212-c72d-40f2-aa8d-535688d4bbcd",
+                "title": "Azure Resource Health: Get Availability Transitions List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "d028b336-88b1-4893-99e5-218eb55b8ee4",
+              "@type": "WorkflowStep",
+              "name": "Get Availability Transitions List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Azure Resource Health",
+                "config": "''",
+                "params": {
+                  "subscription_id": "",
+                  "resource_group_name": "",
+                  "resource_provider_name": "",
+                  "resource_type": "",
+                  "resource_name": "",
+                  "filter": ""
+                },
+                "version": "1.0.0",
+                "connector": "azure-resource-health",
+                "operation": "get_availability_status_list",
+                "operationTitle": "Get Availability Transitions List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "50a7698f-28d4-4871-9500-6adb34ba3ebe",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Availability Transitions List",
+              "sourceStep": "/api/3/workflow_steps/f3a44033-7d8b-49fb-9f33-2f8d6200117d",
+              "targetStep": "/api/3/workflow_steps/d028b336-88b1-4893-99e5-218eb55b8ee4"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7e58ce9a-6fc6-4a20-b1b6-c8142a4eb11f",
+          "collection": "/api/3/workflow_collections/de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+          "triggerLimit": null,
+          "description": "Retrieves the list of current availability status for all the resources in the resource group from Azure Resource Health",
+          "name": "Get Current Availability Status by Resource Group",
+          "tag": "#Azure Resource Health",
+          "recordTags": [
+            "Azure",
+            "azure-resource-health"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/dddade7e-bf0f-461b-8db0-1f5941a01130",
+          "steps": [
+            {
+              "uuid": "dddade7e-bf0f-461b-8db0-1f5941a01130",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ff4df8e1-52be-4698-8cf6-146ddb04f83e",
+                "title": "Azure Resource Health: Get Current Availability Status by Resource Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "4f70979f-7dba-4c69-a141-4714235ed2b7",
+              "@type": "WorkflowStep",
+              "name": "Get Current Availability Status by Resource Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Azure Resource Health",
+                "config": "''",
+                "params": {
+                  "subscription_id": "",
+                  "resource_group_name": "",
+                  "filter": ""
+                },
+                "version": "1.0.0",
+                "connector": "azure-resource-health",
+                "operation": "get_availability_status_by_resource_group",
+                "operationTitle": "Get Current Availability Status by Resource Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "dba59ff2-fde9-4290-8274-9911d1853bf7",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Current Availability Status by Resource Group",
+              "sourceStep": "/api/3/workflow_steps/dddade7e-bf0f-461b-8db0-1f5941a01130",
+              "targetStep": "/api/3/workflow_steps/4f70979f-7dba-4c69-a141-4714235ed2b7"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "e9e5e034-a693-4766-be97-c83c9725d551",
+          "collection": "/api/3/workflow_collections/de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+          "triggerLimit": null,
+          "description": "Retrieves the list of current availability status for all the resources in the subscription from Azure Resource Health",
+          "name": "Get Current Availability Status by Subscription ID",
+          "tag": "#Azure Resource Health",
+          "recordTags": [
+            "Azure",
+            "azure-resource-health"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/cbb54f4f-421b-4494-9e78-d523f5d65ce2",
+          "steps": [
+            {
+              "uuid": "cbb54f4f-421b-4494-9e78-d523f5d65ce2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "100237be-f4b5-424a-a8e7-4e176a0d1992",
+                "title": "Azure Resource Health: Get Current Availability Status by Subscription ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "703b2c23-12f9-46aa-93b4-3b5271bcde49",
+              "@type": "WorkflowStep",
+              "name": "Get Current Availability Status by Subscription ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Azure Resource Health",
+                "config": "''",
+                "params": {
+                  "subscription_id": "",
+                  "filter": ""
+                },
+                "version": "1.0.0",
+                "connector": "azure-resource-health",
+                "operation": "get_availability_status_by_subscription_id",
+                "operationTitle": "Get Current Availability Status by Subscription ID",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "59b6b7a3-431b-44ec-83a4-1a7e5b1bda37",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Current Availability Status by Subscription ID",
+              "sourceStep": "/api/3/workflow_steps/cbb54f4f-421b-4494-9e78-d523f5d65ce2",
+              "targetStep": "/api/3/workflow_steps/703b2c23-12f9-46aa-93b4-3b5271bcde49"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a01acc35-46be-4aaa-9f9e-64f7a19725b0",
+          "collection": "/api/3/workflow_collections/de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+          "triggerLimit": null,
+          "description": "Retrieves list of current service health events for given resource from Azure Resource Health",
+          "name": "Get Event list for Resource",
+          "tag": "#Azure Resource Health",
+          "recordTags": [
+            "Azure",
+            "azure-resource-health"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/4cd8d08e-1aab-45ae-b7ee-1565bd248218",
+          "steps": [
+            {
+              "uuid": "4cd8d08e-1aab-45ae-b7ee-1565bd248218",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "0ff170e0-0502-429c-a955-3f753a0bf6b8",
+                "title": "Azure Resource Health: Get Event list for Resource",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "523cdf56-0f2c-4a05-be70-cb43d683a49e",
+              "@type": "WorkflowStep",
+              "name": "Get Event list for Resource",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Azure Resource Health",
+                "config": "''",
+                "params": {
+                  "subscription_id": "",
+                  "resource_group_name": "",
+                  "resource_provider_name": "",
+                  "resource_type": "",
+                  "resource_name": "",
+                  "filter": ""
+                },
+                "version": "1.0.0",
+                "connector": "azure-resource-health",
+                "operation": "get_event_list_for_resource",
+                "operationTitle": "Get Event list for Resource",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "5adbc905-dfcd-4274-bd46-a56d1b3ef39a",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Event list for Resource",
+              "sourceStep": "/api/3/workflow_steps/4cd8d08e-1aab-45ae-b7ee-1565bd248218",
+              "targetStep": "/api/3/workflow_steps/523cdf56-0f2c-4a05-be70-cb43d683a49e"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b7ffe21c-d7d8-42b7-addb-29dc9a098417",
+          "collection": "/api/3/workflow_collections/de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+          "triggerLimit": null,
+          "description": "Retrieves list of service health events in the subscription from Azure Resource Health",
+          "name": "Get Event List for Subscription ID",
+          "tag": "#Azure Resource Health",
+          "recordTags": [
+            "Azure",
+            "azure-resource-health"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b39e5456-91de-4b39-938a-5ddf9f49640e",
+          "steps": [
+            {
+              "uuid": "b39e5456-91de-4b39-938a-5ddf9f49640e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "84e53f2b-3532-49c0-b6c7-8285bd7aa828",
+                "title": "Azure Resource Health: Get Event List for Subscription ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "a2ed8cc5-0fb3-40d0-bc01-fb419a3ef550",
+              "@type": "WorkflowStep",
+              "name": "Get Event List for Subscription ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Azure Resource Health",
+                "config": "''",
+                "params": {
+                  "subscription_id": "",
+                  "query_start_time": "",
+                  "filter": ""
+                },
+                "version": "1.0.0",
+                "connector": "azure-resource-health",
+                "operation": "get_event_list_for_subscription_id",
+                "operationTitle": "Get Event List for Subscription ID",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "9aeeebad-0f9c-433f-83e5-3718552086d5",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Event List for Subscription ID",
+              "sourceStep": "/api/3/workflow_steps/b39e5456-91de-4b39-938a-5ddf9f49640e",
+              "targetStep": "/api/3/workflow_steps/a2ed8cc5-0fb3-40d0-bc01-fb419a3ef550"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "eecc3d98-6536-4d55-bcdb-3e8ca6316db0",
+          "collection": "/api/3/workflow_collections/de5a7800-2eb8-4cff-be1f-017a88e3ca7d",
+          "triggerLimit": null,
+          "description": "Retrieves list of current service health events in the tenant from Azure Resource Health",
+          "name": "Get Event list for Tenant ID",
+          "tag": "#Azure Resource Health",
+          "recordTags": [
+            "Azure",
+            "azure-resource-health"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/4f3a8862-b5e6-4428-8c57-1e3af363f10d",
+          "steps": [
+            {
+              "uuid": "4f3a8862-b5e6-4428-8c57-1e3af363f10d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "cdb9d874-bec2-42d6-8950-917dfceb3fe7",
+                "title": "Azure Resource Health: Get Event list for Tenant ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "7f80bcaf-d3de-44d7-b285-f860483ab333",
+              "@type": "WorkflowStep",
+              "name": "Get Event list for Tenant ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Azure Resource Health",
+                "config": "''",
+                "params": {
+                  "query_start_time": "",
+                  "filter": ""
+                },
+                "version": "1.0.0",
+                "connector": "azure-resource-health",
+                "operation": "get_event_list_for_tenant_id",
+                "operationTitle": "Get Event list for Tenant ID",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "5f635596-65e6-48e2-a874-166a69be1797",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Event list for Tenant ID",
+              "sourceStep": "/api/3/workflow_steps/4f3a8862-b5e6-4428-8c57-1e3af363f10d",
+              "targetStep": "/api/3/workflow_steps/7f80bcaf-d3de-44d7-b285-f860483ab333"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

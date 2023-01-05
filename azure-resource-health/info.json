@@ -1,0 +1,708 @@
+{
+  "name": "azure-resource-health",
+  "label": "Azure Resource Health",
+  "version": "1.0.0",
+  "description": "Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources, it reports on the current and past health of your resources.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "category": "IT Service Management",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "resource",
+        "value": "https://management.azure.com",
+        "description": "The service-based URL to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Client ID",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "client_id",
+        "description": "Unique ID of the Azure Active Directory application that is used to create an authentication token required to access the API."
+      },
+      {
+        "title": "Client Secret",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "client_secret",
+        "description": "Unique Client Secret of the Azure Active Directory application that is used to create an authentication token required to access the API. For information on how to get the secret key, see https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/exposed-apis-create-app-webapp."
+      },
+      {
+        "title": "Tenant ID",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "tenant_id",
+        "description": "ID of the tenant that you have been provided for your Azure Active Directory instance."
+      },
+      {
+        "title": "Auth Code",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "code",
+        "description": "(Only Applicable to On behalf of User – Delegated Permission) The authorization code that you acquired during the authorization step. For more information, see the Getting Access Tokens using the Delegated Permissions method section."
+      },
+      {
+        "title": "Redirect URL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "redirect_url",
+        "description": "(Only Applicable to On behalf of User – Delegated Permission) The redirect_url of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match one of the redirect_url's you have registered in your app registration portal."
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_availability_status",
+      "title": "Get Availability Status",
+      "description": "Retrieves current availability status for a single resource from Azure Resource Health",
+      "category": "investigation",
+      "annotation": "get_availability_status",
+      "enabled": true,
+      "output_schema": {
+        "id": "",
+        "name": "",
+        "type": "",
+        "location": "",
+        "properties": {
+          "availabilityState": "",
+          "title": "",
+          "summary": "",
+          "reasonType": "",
+          "reasonChronicity": "",
+          "detailedStatus": "",
+          "occuredTime": "",
+          "reportedTime": "",
+          "rootCauseAttributionTime": "",
+          "resolutionETA": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Subscription ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "subscription_id",
+          "value": "",
+          "description": "ID of the subscription that you have been provided to use cloud services."
+        },
+        {
+          "title": "Resource Group Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_group_name",
+          "value": "",
+          "description": "Specify the name of the resource group."
+        },
+        {
+          "title": "Resource Provider Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_provider_name",
+          "value": "",
+          "placeholder": "eg: Microsoft.Compute",
+          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+        },
+        {
+          "title": "Resource Type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_type",
+          "value": "",
+          "placeholder": "eg: virtualMachines",
+          "description": "Specify the name of the resource type. eg: virtualMachines"
+        },
+        {
+          "title": "Resource Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_name",
+          "value": "",
+          "description": "Specify the name of the resource."
+        },
+        {
+          "title": "Filter",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "value": "",
+          "placeholder": "eg: name eq 'Current'",
+          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+        }
+      ]
+    },
+    {
+      "operation": "get_availability_status_list",
+      "title": "Get Availability Transitions List",
+      "description": "Retrieves list of historical availability transitions and impacting events for a single resource from Azure Resource Health",
+      "category": "investigation",
+      "annotation": "get_availability_status_list",
+      "enabled": true,
+      "output_schema": {
+        "value": [
+          {
+            "id": "",
+            "name": "",
+            "type": "",
+            "location": "",
+            "properties": {
+              "title": "",
+              "summary": "",
+              "reasonType": "",
+              "category": "",
+              "context": "",
+              "healthEventType": "",
+              "healthEventCause": "",
+              "rootCauseAttributionTime": "",
+              "occuredTime": "",
+              "reasonChronicity": ""
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Subscription ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "subscription_id",
+          "value": "",
+          "description": "ID of the subscription that you have been provided to use cloud services."
+        },
+        {
+          "title": "Resource Group Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_group_name",
+          "value": "",
+          "description": "Specify the name of the resource group."
+        },
+        {
+          "title": "Resource Provider Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_provider_name",
+          "value": "",
+          "placeholder": "eg: Microsoft.Compute",
+          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+        },
+        {
+          "title": "Resource Type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_type",
+          "value": "",
+          "placeholder": "eg: virtualMachines",
+          "description": "Specify the name of the resource type. eg: virtualMachines"
+        },
+        {
+          "title": "Resource Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_name",
+          "value": "",
+          "description": "Specify the name of the resource."
+        },
+        {
+          "title": "Filter",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "value": "",
+          "placeholder": "eg: name eq 'Current'",
+          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+        }
+      ]
+    },
+    {
+      "operation": "get_availability_status_by_resource_group",
+      "title": "Get Current Availability Status by Resource Group",
+      "description": "Retrieves the list of current availability status for all the resources in the resource group from Azure Resource Health",
+      "category": "investigation",
+      "annotation": "get_availability_status_by_resource_group",
+      "enabled": true,
+      "output_schema":{
+        "value": [
+          {
+            "id": "",
+            "name": "",
+            "type": "",
+            "location": "",
+            "properties": {
+              "availabilityState": "",
+              "title": "",
+              "summary": "",
+              "reasonType": "",
+              "category": "",
+              "context": "",
+              "occuredTime": "",
+              "reasonChronicity": "",
+              "reportedTime": ""
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Subscription ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "subscription_id",
+          "value": "",
+          "description": "ID of the subscription that you have been provided to use cloud services."
+        },
+        {
+          "title": "Resource Group Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_group_name",
+          "value": "",
+          "description": "Specify the name of the resource group."
+        },
+        {
+          "title": "Filter",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "value": "",
+          "placeholder": "eg: name eq 'Current'",
+          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+        }
+      ]
+    },
+    {
+      "operation": "get_availability_status_by_subscription_id",
+      "title": "Get Current Availability Status by Subscription ID",
+      "description": "Retrieves the list of current availability status for all the resources in the subscription from Azure Resource Health",
+      "category": "investigation",
+      "annotation": "get_availability_status_by_subscription_id",
+      "enabled": true,
+      "output_schema":{
+        "value": [
+          {
+            "id": "",
+            "name": "",
+            "type": "",
+            "location": "",
+            "properties": {
+              "availabilityState": "",
+              "title": "",
+              "summary": "",
+              "reasonType": "",
+              "category": "",
+              "context": "",
+              "occuredTime": "",
+              "reasonChronicity": "",
+              "reportedTime": ""
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Subscription ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "subscription_id",
+          "value": "",
+          "description": "ID of the subscription that you have been provided to use cloud services."
+        },
+        {
+          "title": "Filter",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "value": "",
+          "placeholder": "eg: name eq 'Current'",
+          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+        }
+      ]
+    },
+    {
+      "operation": "get_event_list_for_resource",
+      "title": "Get Event list for Resource",
+      "description": "Retrieves list of current service health events for given resource from Azure Resource Health",
+      "category": "investigation",
+      "annotation": "get_event_list_for_resource",
+      "enabled": true,
+      "output_schema": {
+        "value": [
+          {
+            "id": "",
+            "name": "",
+            "type": "",
+            "properties": {
+              "eventType": "",
+              "eventSource": "",
+              "status": "",
+              "title": "",
+              "summary": "",
+              "reason": "",
+              "platformInitiated": "",
+              "header": "",
+              "level": "",
+              "eventLevel": "",
+              "impactStartTime": "",
+              "impact": "",
+              "isHIR": "",
+              "priority": ""
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Subscription ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "subscription_id",
+          "value": "",
+          "description": "ID of the subscription that you have been provided to use cloud services."
+        },
+        {
+          "title": "Resource Group Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_group_name",
+          "value": "",
+          "description": "Specify the name of the resource group."
+        },
+        {
+          "title": "Resource Provider Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_provider_name",
+          "value": "",
+          "placeholder": "eg: Microsoft.Compute",
+          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+        },
+        {
+          "title": "Resource Type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_type",
+          "value": "",
+          "placeholder": "eg: virtualMachines",
+          "description": "Specify the name of the resource type. eg: virtualMachines"
+        },
+        {
+          "title": "Resource Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resource_name",
+          "value": "",
+          "description": "Specify the name of the resource."
+        },
+        {
+          "title": "Filter",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "value": "",
+          "placeholder": "eg: name eq 'Current'",
+          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+        }
+      ]
+    },
+    {
+      "operation": "get_event_list_for_subscription_id",
+      "title": "Get Event List for Subscription ID",
+      "description": "Retrieves list of service health events in the subscription from Azure Resource Health",
+      "category": "investigation",
+      "annotation": "get_event_list_for_subscription_id",
+      "enabled": true,
+      "output_schema": {
+        "value": [
+          {
+            "id": "",
+            "name": "",
+            "type": "",
+            "properties": {
+              "eventType": "",
+              "eventSource": "",
+              "status": "",
+              "title": "",
+              "summary": "",
+              "header": "",
+              "article": {
+                "articleContent": ""
+              },
+              "links": [
+                {
+                  "type": "",
+                  "displayText": {
+                    "value": "",
+                    "localizedValue": ""
+                  },
+                  "extensionName": "",
+                  "bladeName": "",
+                  "parameters": {
+                    "trackingId": "",
+                    "rcaRequested": ""
+                  }
+                }
+              ],
+              "level": "",
+              "eventLevel": "",
+              "impactStartTime": "",
+              "impactMitigationTime": "",
+              "impact": [
+                {
+                  "impactedService": "",
+                  "impactedRegions": [
+                    {
+                      "impactedRegion": "",
+                      "status": "",
+                      "impactedSubscriptions": "",
+                      "impactedTenants": "",
+                      "lastUpdateTime": ""
+                    }
+                  ]
+                }
+              ],
+              "recommendedActions": {
+                "message": "",
+                "actions": [
+                  {
+                    "groupId": "",
+                    "actionText": ""
+                  }
+                ],
+                "localeCode": ""
+              },
+              "faqs": [
+                {
+                  "question": "",
+                  "answer": "",
+                  "localeCode": ""
+                }
+              ],
+              "isHIR": "",
+              "enableMicrosoftSupport": "",
+              "enableChatWithUs": "",
+              "priority": "",
+              "lastUpdateTime": "",
+              "hirStage": ""
+            }
+          }
+        ],
+        "nextLink": ""
+      },
+      "parameters": [
+        {
+          "title": "Subscription ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "subscription_id",
+          "value": "",
+          "description": "ID of the subscription that you have been provided to use cloud services."
+        },
+        {
+          "title": "Query Start Time",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query_start_time",
+          "value": "",
+          "description": "Specifies from when to return events, based on the lastUpdateTime property"
+        },
+        {
+          "title": "Filter",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "value": "",
+          "placeholder": "eg: name eq 'Current'",
+          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+        }
+      ]
+    },
+    {
+      "operation": "get_event_list_for_tenant_id",
+      "title": "Get Event list for Tenant ID",
+      "description": "Retrieves list of current service health events in the tenant from Azure Resource Health",
+      "category": "investigation",
+      "annotation": "get_event_list_for_tenant_id",
+      "enabled": true,
+      "output_schema": {
+        "value": [
+          {
+            "id": "",
+            "name": "",
+            "type": "",
+            "properties": {
+              "eventType": "",
+              "eventSource": "",
+              "status": "",
+              "title": "",
+              "summary": "",
+              "header": "",
+              "article": {
+                "articleContent": ""
+              },
+              "links": [
+                {
+                  "type": "",
+                  "displayText": {
+                    "value": "",
+                    "localizedValue": ""
+                  },
+                  "extensionName": "",
+                  "bladeName": "",
+                  "parameters": {
+                    "trackingId": "",
+                    "rcaRequested": ""
+                  }
+                }
+              ],
+              "level": "",
+              "eventLevel": "",
+              "impactStartTime": "",
+              "impactMitigationTime": "",
+              "impact": [
+                {
+                  "impactedService": "",
+                  "impactedRegions": [
+                    {
+                      "impactedRegion": "",
+                      "status": "",
+                      "impactedSubscriptions": "",
+                      "impactedTenants": "",
+                      "lastUpdateTime": ""
+                    }
+                  ]
+                }
+              ],
+              "recommendedActions": {
+                "message": "",
+                "actions": [
+                  {
+                    "groupId": "",
+                    "actionText": ""
+                  }
+                ],
+                "localeCode": ""
+              },
+              "faqs": [
+                {
+                  "question": "",
+                  "answer": "",
+                  "localeCode": ""
+                }
+              ],
+              "isHIR": "",
+              "enableMicrosoftSupport": "",
+              "enableChatWithUs": "",
+              "priority": "",
+              "lastUpdateTime": "",
+              "hirStage": ""
+            }
+          }
+        ],
+        "nextLink": ""
+      },
+      "parameters": [
+        {
+          "title": "Query Start Time",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query_start_time",
+          "value": "",
+          "description": "Specifies from when to return events, based on the lastUpdateTime property"
+        },
+        {
+          "title": "Filter",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "value": "",
+          "placeholder": "eg: name eq 'Current'",
+          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+        }
+      ]
+    }
+  ]
+}
