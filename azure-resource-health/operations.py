@@ -24,7 +24,6 @@ def api_request(method, endpoint, connector_info, config, params={}, data={}, he
         headers["Content-Type"] = "application/json"
 
         try:
-            logger.error(f"\n-------------- method: {method} || endpoint: {endpoint} || headers: {headers} || params: {params} || data: {data} || verify: {ms.verify_ssl} ---------------\n")
             response = request(method, endpoint, headers=headers, params=params,
                                data=data, verify=ms.verify_ssl)
 
@@ -92,66 +91,45 @@ def get_url_and_params(function_name, config, params, connector_info):
 
 
 def get_availability_status(config, params, connector_info):
-    try:
-        endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS, config, params, connector_info)
-        response = api_request("GET", endpoint, connector_info, config, query_params)
-        return response
-    except Exception as err:
-        raise ConnectorError(str(err))
+    endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS, config, params, connector_info)
+    response = api_request("GET", endpoint, connector_info, config, query_params)
+    return response
 
 
 def get_availability_status_list(config, params, connector_info):
-    try:
-        endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS_LIST, config, params, connector_info)
-        response = api_request("GET", endpoint, connector_info, config, query_params)
-        return response
-    except Exception as err:
-        raise ConnectorError(str(err))
+    endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS_LIST, config, params, connector_info)
+    response = api_request("GET", endpoint, connector_info, config, query_params)
+    return response
 
 
 def get_availability_status_by_resource_group(config, params, connector_info):
-    try:
-        endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS_BY_RESOURCE_GROUP, config, params, connector_info)
-        response = api_request("GET", endpoint, connector_info, config, query_params)
-        return response
-    except Exception as err:
-        raise ConnectorError(str(err))
+    endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS_BY_RESOURCE_GROUP, config, params, connector_info)
+    response = api_request("GET", endpoint, connector_info, config, query_params)
+    return response
 
 
 def get_availability_status_by_subscription_id(config, params, connector_info):
-    try:
-        endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS_BY_SUBSCRIPTION_ID, config, params, connector_info)
-        response = api_request("GET", endpoint, connector_info, config, query_params)
-        return response
-    except Exception as err:
-        raise ConnectorError(str(err))
+    endpoint, query_params = get_url_and_params(FuncName.GET_AVAILABILITY_STATUS_BY_SUBSCRIPTION_ID, config, params, connector_info)
+    response = api_request("GET", endpoint, connector_info, config, query_params)
+    return response
 
 
 def get_event_list_for_resource(config, params, connector_info):
-    try:
-        endpoint, query_params = get_url_and_params(FuncName.GET_EVENT_LIST_FOR_RESOURCE, config, params, connector_info)
-        response = api_request("GET", endpoint, connector_info, config, query_params)
-        return response
-    except Exception as err:
-        raise ConnectorError(str(err))
+    endpoint, query_params = get_url_and_params(FuncName.GET_EVENT_LIST_FOR_RESOURCE, config, params, connector_info)
+    response = api_request("GET", endpoint, connector_info, config, query_params)
+    return response
 
 
 def get_event_list_for_subscription_id(config, params, connector_info):
-    try:
-        endpoint, query_params = get_url_and_params(FuncName.GET_EVENT_LIST_FOR_SUBSCRIPTION_ID, config, params, connector_info)
-        response = api_request("GET", endpoint, connector_info, config, query_params)
-        return response
-    except Exception as err:
-        raise ConnectorError(str(err))
+    endpoint, query_params = get_url_and_params(FuncName.GET_EVENT_LIST_FOR_SUBSCRIPTION_ID, config, params, connector_info)
+    response = api_request("GET", endpoint, connector_info, config, query_params)
+    return response
 
 
 def get_event_list_for_tenant_id(config, params, connector_info):
-    try:
-        endpoint, query_params = get_url_and_params(FuncName.GET_EVENT_LIST_FOR_TENANT_ID, config, params, connector_info)
-        response = api_request("GET", endpoint, connector_info, config, query_params)
-        return response
-    except Exception as err:
-        raise ConnectorError(str(err))
+    endpoint, query_params = get_url_and_params(FuncName.GET_EVENT_LIST_FOR_TENANT_ID, config, params, connector_info)
+    response = api_request("GET", endpoint, connector_info, config, query_params)
+    return response
 
 
 operations = {

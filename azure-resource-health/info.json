@@ -20,7 +20,7 @@
         "type": "text",
         "name": "resource",
         "value": "https://management.azure.com",
-        "description": "The service based URI to which you will connect and perform the automated operations."
+        "description": "The service-based URL to which you will connect and perform the automated operations."
       },
       {
         "title": "Client ID",
@@ -29,7 +29,7 @@
         "visible": true,
         "type": "text",
         "name": "client_id",
-        "description": "ID of the Azure application client."
+        "description": "Unique ID of the Azure Active Directory application that is used to create an authentication token required to access the API."
       },
       {
         "title": "Client Secret",
@@ -38,7 +38,7 @@
         "visible": true,
         "type": "password",
         "name": "client_secret",
-        "description": "The secret string that the application uses to prove its identity."
+        "description": "Unique Client Secret of the Azure Active Directory application that is used to create an authentication token required to access the API. For information on how to get the secret key, see https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/exposed-apis-create-app-webapp."
       },
       {
         "title": "Tenant ID",
@@ -47,7 +47,7 @@
         "visible": true,
         "type": "text",
         "name": "tenant_id",
-        "description": "ID of the Azure application tenant."
+        "description": "ID of the tenant that you have been provided for your Azure Active Directory instance."
       },
       {
         "title": "Auth Code",
@@ -56,8 +56,7 @@
         "visible": true,
         "type": "password",
         "name": "code",
-        "tooltip": "The authorization code that you acquired in the authorization step.",
-        "description": ""
+        "description": "(Only Applicable to On behalf of User – Delegated Permission) The authorization code that you acquired during the authorization step. For more information, see the Getting Access Tokens using the Delegated Permissions method section."
       },
       {
         "title": "Redirect URL",
@@ -66,7 +65,7 @@
         "visible": true,
         "type": "text",
         "name": "redirect_url",
-        "description": "The redirect_uri of your app, where authentication responses can be sent and received by your app."
+        "description": "(Only Applicable to On behalf of User – Delegated Permission) The redirect_url of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match one of the redirect_url's you have registered in your app registration portal."
       },
       {
         "title": "Verify SSL",
@@ -125,7 +124,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "The name of the resource group."
+          "description": "Specify the name of the resource group."
         },
         {
           "title": "Resource Provider Name",
@@ -135,7 +134,8 @@
           "type": "text",
           "name": "resource_provider_name",
           "value": "",
-          "description": "The name of the resource provider."
+          "placeholder": "eg: Microsoft.Compute",
+          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
@@ -145,7 +145,8 @@
           "type": "text",
           "name": "resource_type",
           "value": "",
-          "description": "The name of the resource type."
+          "placeholder": "eg: virtualMachines",
+          "description": "Specify the name of the resource type. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -155,7 +156,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "The name of the resource"
+          "description": "Specify the name of the resource."
         },
         {
           "title": "Filter",
@@ -165,6 +166,7 @@
           "type": "text",
           "name": "filter",
           "value": "",
+          "placeholder": "eg: name eq 'Current'",
           "description": "Use filter expressions to filter and return only those results that match the expressions specified."
         }
       ]
@@ -217,7 +219,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "The name of the resource group."
+          "description": "Specify the name of the resource group."
         },
         {
           "title": "Resource Provider Name",
@@ -227,7 +229,8 @@
           "type": "text",
           "name": "resource_provider_name",
           "value": "",
-          "description": "The name of the resource provider."
+          "placeholder": "eg: Microsoft.Compute",
+          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
@@ -237,7 +240,8 @@
           "type": "text",
           "name": "resource_type",
           "value": "",
-          "description": "The name of the resource type."
+          "placeholder": "eg: virtualMachines",
+          "description": "Specify the name of the resource type. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -247,7 +251,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "The name of the resource"
+          "description": "Specify the name of the resource."
         },
         {
           "title": "Filter",
@@ -257,6 +261,7 @@
           "type": "text",
           "name": "filter",
           "value": "",
+          "placeholder": "eg: name eq 'Current'",
           "description": "Use filter expressions to filter and return only those results that match the expressions specified."
         }
       ]
@@ -308,7 +313,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "The name of the resource group."
+          "description": "Specify the name of the resource group."
         },
         {
           "title": "Filter",
@@ -318,6 +323,7 @@
           "type": "text",
           "name": "filter",
           "value": "",
+          "placeholder": "eg: name eq 'Current'",
           "description": "Use filter expressions to filter and return only those results that match the expressions specified."
         }
       ]
@@ -369,6 +375,7 @@
           "type": "text",
           "name": "filter",
           "value": "",
+          "placeholder": "eg: name eq 'Current'",
           "description": "Use filter expressions to filter and return only those results that match the expressions specified."
         }
       ]
@@ -424,7 +431,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "The name of the resource group."
+          "description": "Specify the name of the resource group."
         },
         {
           "title": "Resource Provider Name",
@@ -434,7 +441,8 @@
           "type": "text",
           "name": "resource_provider_name",
           "value": "",
-          "description": "The name of the resource provider."
+          "placeholder": "eg: Microsoft.Compute",
+          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
@@ -444,7 +452,8 @@
           "type": "text",
           "name": "resource_type",
           "value": "",
-          "description": "The name of the resource type."
+          "placeholder": "eg: virtualMachines",
+          "description": "Specify the name of the resource type. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -454,7 +463,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "The name of the resource"
+          "description": "Specify the name of the resource."
         },
         {
           "title": "Filter",
@@ -464,6 +473,7 @@
           "type": "text",
           "name": "filter",
           "value": "",
+          "placeholder": "eg: name eq 'Current'",
           "description": "Use filter expressions to filter and return only those results that match the expressions specified."
         }
       ]
@@ -503,18 +513,6 @@
                   "parameters": {
                     "trackingId": "",
                     "rcaRequested": ""
-                  }
-                },
-                {
-                  "type": "",
-                  "displayText": {
-                    "value": "",
-                    "localizedValue": ""
-                  },
-                  "extensionName": "",
-                  "bladeName": "",
-                  "parameters": {
-                    "trackingId": ""
                   }
                 }
               ],
@@ -593,6 +591,7 @@
           "type": "text",
           "name": "filter",
           "value": "",
+          "placeholder": "eg: name eq 'Current'",
           "description": "Use filter expressions to filter and return only those results that match the expressions specified."
         }
       ]
@@ -632,18 +631,6 @@
                   "parameters": {
                     "trackingId": "",
                     "rcaRequested": ""
-                  }
-                },
-                {
-                  "type": "",
-                  "displayText": {
-                    "value": "",
-                    "localizedValue": ""
-                  },
-                  "extensionName": "",
-                  "bladeName": "",
-                  "parameters": {
-                    "trackingId": ""
                   }
                 }
               ],
@@ -712,6 +699,7 @@
           "type": "text",
           "name": "filter",
           "value": "",
+          "placeholder": "eg: name eq 'Current'",
           "description": "Use filter expressions to filter and return only those results that match the expressions specified."
         }
       ]
