@@ -2,7 +2,7 @@
   "name": "azure-resource-health",
   "label": "Azure Resource Health",
   "version": "1.0.0",
-  "description": "Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources, it reports on the current and past health of your resources.",
+  "description": "Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources, it reports on the current and past health of your resources. This connector supports actions related to availability status and events.",
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
@@ -56,7 +56,7 @@
         "visible": true,
         "type": "password",
         "name": "code",
-        "description": "(Only Applicable to On behalf of User – Delegated Permission) The authorization code that you acquired during the authorization step. For more information, see the Getting Access Tokens using the Delegated Permissions method section."
+        "description": "The authorization code that you acquired during the authorization step. For more information, see the Getting Access Tokens using the Delegated Permissions method section."
       },
       {
         "title": "Redirect URL",
@@ -65,7 +65,7 @@
         "visible": true,
         "type": "text",
         "name": "redirect_url",
-        "description": "(Only Applicable to On behalf of User – Delegated Permission) The redirect_url of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match one of the redirect_url's you have registered in your app registration portal."
+        "description": "The redirect_url of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match one of the redirect_url's you have registered in your app registration portal."
       },
       {
         "title": "Verify SSL",
@@ -124,7 +124,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "Specify the name of the resource group."
+          "description": "Specify the name of the resource group from Azure portal."
         },
         {
           "title": "Resource Provider Name",
@@ -135,7 +135,7 @@
           "name": "resource_provider_name",
           "value": "",
           "placeholder": "eg: Microsoft.Compute",
-          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+          "description": "Specify the name of the resource provider from Azure portal. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
@@ -146,7 +146,7 @@
           "name": "resource_type",
           "value": "",
           "placeholder": "eg: virtualMachines",
-          "description": "Specify the name of the resource type. eg: virtualMachines"
+          "description": "Specify the name of the resource type from Azure portal. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -156,7 +156,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "Specify the name of the resource."
+          "description": "Specify the name of the resource from Azure portal."
         },
         {
           "title": "Filter",
@@ -219,7 +219,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "Specify the name of the resource group."
+          "description": "Specify the name of the resource group from Azure portal."
         },
         {
           "title": "Resource Provider Name",
@@ -230,7 +230,7 @@
           "name": "resource_provider_name",
           "value": "",
           "placeholder": "eg: Microsoft.Compute",
-          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+          "description": "Specify the name of the resource provider from Azure portal. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
@@ -241,7 +241,7 @@
           "name": "resource_type",
           "value": "",
           "placeholder": "eg: virtualMachines",
-          "description": "Specify the name of the resource type. eg: virtualMachines"
+          "description": "Specify the name of the resource type from Azure portal. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -251,7 +251,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "Specify the name of the resource."
+          "description": "Specify the name of the resource from Azure portal."
         },
         {
           "title": "Filter",
@@ -313,7 +313,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "Specify the name of the resource group."
+          "description": "Specify the name of the resource group from Azure portal."
         },
         {
           "title": "Filter",
@@ -382,7 +382,7 @@
     },
     {
       "operation": "get_event_list_for_resource",
-      "title": "Get Event list for Resource",
+      "title": "Get Event List for Resource",
       "description": "Retrieves list of current service health events for given resource from Azure Resource Health",
       "category": "investigation",
       "annotation": "get_event_list_for_resource",
@@ -431,7 +431,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "Specify the name of the resource group."
+          "description": "Specify the name of the resource group from Azure portal."
         },
         {
           "title": "Resource Provider Name",
@@ -442,7 +442,7 @@
           "name": "resource_provider_name",
           "value": "",
           "placeholder": "eg: Microsoft.Compute",
-          "description": "Specify the name of the resource provider. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+          "description": "Specify the name of the resource provider from Azure portal. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
@@ -453,7 +453,7 @@
           "name": "resource_type",
           "value": "",
           "placeholder": "eg: virtualMachines",
-          "description": "Specify the name of the resource type. eg: virtualMachines"
+          "description": "Specify the name of the resource type from Azure portal. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -463,7 +463,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "Specify the name of the resource."
+          "description": "Specify the name of the resource from Azure portal."
         },
         {
           "title": "Filter",
@@ -598,7 +598,7 @@
     },
     {
       "operation": "get_event_list_for_tenant_id",
-      "title": "Get Event list for Tenant ID",
+      "title": "Get Event List for Tenant ID",
       "description": "Retrieves list of current service health events in the tenant from Azure Resource Health",
       "category": "investigation",
       "annotation": "get_event_list_for_tenant_id",
