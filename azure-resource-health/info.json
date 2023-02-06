@@ -230,7 +230,7 @@
           "name": "resource_provider_name",
           "value": "",
           "placeholder": "eg: Microsoft.Compute",
-          "description": "Specify the name of the resource provider from the Azure portal. For example: Microsoft.Compute. For a list of resource providers, check Resource providers for Azure services."
+          "description": "Specify the name of the resource provider from the Azure portal. For example: Microsoft.Compute. For a list of resource providers, check Resource providers for Azure services. Link - https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
@@ -442,7 +442,7 @@
           "name": "resource_provider_name",
           "value": "",
           "placeholder": "eg: Microsoft.Compute",
-          "description": "Specify the name of the resource provider from the Azure portal. For example: Microsoft.Compute. For a list of resource providers, check Resource providers for Azure services."
+          "description": "Specify the name of the resource provider from the Azure portal. For example: Microsoft.Compute. For a list of resource providers, check Resource providers for Azure services. Link - https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
         },
         {
           "title": "Resource Type",
