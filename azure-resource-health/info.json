@@ -20,7 +20,7 @@
         "type": "text",
         "name": "resource",
         "value": "https://management.azure.com",
-        "description": "The service-based URL to which you will connect and perform the automated operations."
+        "description": "The service-based URL to which you connect and perform automated operations."
       },
       {
         "title": "Client ID",
@@ -38,7 +38,7 @@
         "visible": true,
         "type": "password",
         "name": "client_secret",
-        "description": "Unique Client Secret of the Azure Active Directory application that is used to create an authentication token required to access the API. For information on how to get the secret key, see https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/exposed-apis-create-app-webapp."
+        "description": "Unique Client Secret of the Azure Active Directory application that is used to create an authentication token required to access the API. For information on how to get the secret key, refer to https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/exposed-apis-create-app-webapp."
       },
       {
         "title": "Tenant ID",
@@ -65,7 +65,7 @@
         "visible": true,
         "type": "text",
         "name": "redirect_url",
-        "description": "The redirect_url of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match one of the redirect_url's you have registered in your app registration portal."
+        "description": "The redirect_url of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match the redirect_url you have registered in your app registration portal."
       },
       {
         "title": "Verify SSL",
@@ -75,7 +75,7 @@
         "type": "checkbox",
         "name": "verify_ssl",
         "value": true,
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True."
       }
     ]
   },
@@ -83,7 +83,7 @@
     {
       "operation": "get_availability_status",
       "title": "Get Availability Status",
-      "description": "Retrieves current availability status for a single resource from Azure Resource Health",
+      "description": "Retrieves current availability status for a single resource from Azure Resource Health based on the subscription ID, resource type, resource name, and other details that you have specified.",
       "category": "investigation",
       "annotation": "get_availability_status",
       "enabled": true,
@@ -167,14 +167,14 @@
           "name": "filter",
           "value": "",
           "placeholder": "eg: name eq 'Current'",
-          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+          "description": "Specify filter expressions to filter and return only those results that match the specified expressions."
         }
       ]
     },
     {
       "operation": "get_availability_status_list",
       "title": "Get Availability Transitions List",
-      "description": "Retrieves list of historical availability transitions and impacting events for a single resource from Azure Resource Health",
+      "description": "Retrieves a list of historical availability transitions and impacting events for a single resource from Azure Resource Health based on the subscription ID, resource type, resource name, and other details that you have specified.",
       "category": "investigation",
       "annotation": "get_availability_status_list",
       "enabled": true,
@@ -209,7 +209,7 @@
           "type": "text",
           "name": "subscription_id",
           "value": "",
-          "description": "ID of the subscription that you have been provided to use cloud services."
+          "description": "Specify the subscription ID that you have been provided to use cloud services."
         },
         {
           "title": "Resource Group Name",
@@ -219,7 +219,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "Specify the name of the resource group from Azure portal."
+          "description": "Specify the name of the resource group from the Azure portal."
         },
         {
           "title": "Resource Provider Name",
@@ -230,7 +230,7 @@
           "name": "resource_provider_name",
           "value": "",
           "placeholder": "eg: Microsoft.Compute",
-          "description": "Specify the name of the resource provider from Azure portal. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+          "description": "Specify the name of the resource provider from the Azure portal. For example: Microsoft.Compute. For a list of resource providers, check Resource providers for Azure services."
         },
         {
           "title": "Resource Type",
@@ -241,7 +241,7 @@
           "name": "resource_type",
           "value": "",
           "placeholder": "eg: virtualMachines",
-          "description": "Specify the name of the resource type from Azure portal. eg: virtualMachines"
+          "description": "Specify the type of the resource from Azure portal. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -251,7 +251,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "Specify the name of the resource from Azure portal."
+          "description": "Specify the name of the resource from the Azure portal."
         },
         {
           "title": "Filter",
@@ -262,18 +262,18 @@
           "name": "filter",
           "value": "",
           "placeholder": "eg: name eq 'Current'",
-          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+          "description": "Specify filter expressions to filter and return only those results that match the specified expressions."
         }
       ]
     },
     {
       "operation": "get_availability_status_by_resource_group",
       "title": "Get Current Availability Status by Resource Group",
-      "description": "Retrieves the list of current availability status for all the resources in the resource group from Azure Resource Health",
+      "description": "Retrieves a list of current availability status for all the resources in the resource group from Azure Resource Health based on the resource type and resource name that you have specified.",
       "category": "investigation",
       "annotation": "get_availability_status_by_resource_group",
       "enabled": true,
-      "output_schema":{
+      "output_schema": {
         "value": [
           {
             "id": "",
@@ -303,7 +303,7 @@
           "type": "text",
           "name": "subscription_id",
           "value": "",
-          "description": "ID of the subscription that you have been provided to use cloud services."
+          "description": "Specify the subscription ID that you have been provided to use cloud services."
         },
         {
           "title": "Resource Group Name",
@@ -313,7 +313,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "Specify the name of the resource group from Azure portal."
+          "description": "Specify the name of the resource group from the Azure portal."
         },
         {
           "title": "Filter",
@@ -324,18 +324,18 @@
           "name": "filter",
           "value": "",
           "placeholder": "eg: name eq 'Current'",
-          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+          "description": "Specify filter expressions to filter and return only those results that match the specified expressions."
         }
       ]
     },
     {
       "operation": "get_availability_status_by_subscription_id",
       "title": "Get Current Availability Status by Subscription ID",
-      "description": "Retrieves the list of current availability status for all the resources in the subscription from Azure Resource Health",
+      "description": "Retrieves a list of current availability status for all the resources in the subscription from Azure Resource Health based on the subscription ID that you have specified.",
       "category": "investigation",
       "annotation": "get_availability_status_by_subscription_id",
       "enabled": true,
-      "output_schema":{
+      "output_schema": {
         "value": [
           {
             "id": "",
@@ -365,7 +365,7 @@
           "type": "text",
           "name": "subscription_id",
           "value": "",
-          "description": "ID of the subscription that you have been provided to use cloud services."
+          "description": "Specify the subscription ID that you have been provided to use cloud services."
         },
         {
           "title": "Filter",
@@ -376,14 +376,14 @@
           "name": "filter",
           "value": "",
           "placeholder": "eg: name eq 'Current'",
-          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+          "description": "Specify filter expressions to filter and return only those results that match the specified expressions."
         }
       ]
     },
     {
       "operation": "get_event_list_for_resource",
       "title": "Get Event List for Resource",
-      "description": "Retrieves list of current service health events for given resource from Azure Resource Health",
+      "description": "Retrieves a list of current service health events for a given resource from Azure Resource Health based on the subscription ID, resource type, resource name, and other details that you have specified.",
       "category": "investigation",
       "annotation": "get_event_list_for_resource",
       "enabled": true,
@@ -421,7 +421,7 @@
           "type": "text",
           "name": "subscription_id",
           "value": "",
-          "description": "ID of the subscription that you have been provided to use cloud services."
+          "description": "Specify the subscription ID that you have been provided to use cloud services."
         },
         {
           "title": "Resource Group Name",
@@ -431,7 +431,7 @@
           "type": "text",
           "name": "resource_group_name",
           "value": "",
-          "description": "Specify the name of the resource group from Azure portal."
+          "description": "Specify the name of the resource group from the Azure portal."
         },
         {
           "title": "Resource Provider Name",
@@ -442,7 +442,7 @@
           "name": "resource_provider_name",
           "value": "",
           "placeholder": "eg: Microsoft.Compute",
-          "description": "Specify the name of the resource provider from Azure portal. eg: Microsoft.Compute Please find the link https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers"
+          "description": "Specify the name of the resource provider from the Azure portal. For example: Microsoft.Compute. For a list of resource providers, check Resource providers for Azure services."
         },
         {
           "title": "Resource Type",
@@ -453,7 +453,7 @@
           "name": "resource_type",
           "value": "",
           "placeholder": "eg: virtualMachines",
-          "description": "Specify the name of the resource type from Azure portal. eg: virtualMachines"
+          "description": "Specify the type of the resource from Azure portal. eg: virtualMachines"
         },
         {
           "title": "Resource Name",
@@ -463,7 +463,7 @@
           "type": "text",
           "name": "resource_name",
           "value": "",
-          "description": "Specify the name of the resource from Azure portal."
+          "description": "Specify the name of the resource from the Azure portal."
         },
         {
           "title": "Filter",
@@ -474,14 +474,14 @@
           "name": "filter",
           "value": "",
           "placeholder": "eg: name eq 'Current'",
-          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+          "description": "Specify filter expressions to filter and return only those results that match the specified expressions."
         }
       ]
     },
     {
       "operation": "get_event_list_for_subscription_id",
       "title": "Get Event List for Subscription ID",
-      "description": "Retrieves list of service health events in the subscription from Azure Resource Health",
+      "description": "Retrieves a list of service health events in the subscription from Azure Resource Health based on the subscription ID, query start time, and other filter criteria that you have specified.",
       "category": "investigation",
       "annotation": "get_event_list_for_subscription_id",
       "enabled": true,
@@ -571,7 +571,7 @@
           "type": "text",
           "name": "subscription_id",
           "value": "",
-          "description": "ID of the subscription that you have been provided to use cloud services."
+          "description": "Specify the subscription ID that you have been provided to use cloud services."
         },
         {
           "title": "Query Start Time",
@@ -581,7 +581,7 @@
           "type": "text",
           "name": "query_start_time",
           "value": "",
-          "description": "Specifies from when to return events, based on the lastUpdateTime property"
+          "description": "Select a date from when to return events, based on the lastUpdateTime property."
         },
         {
           "title": "Filter",
@@ -592,14 +592,14 @@
           "name": "filter",
           "value": "",
           "placeholder": "eg: name eq 'Current'",
-          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+          "description": "Specify filter expressions to filter and return only those results that match the specified expressions."
         }
       ]
     },
     {
       "operation": "get_event_list_for_tenant_id",
       "title": "Get Event List for Tenant ID",
-      "description": "Retrieves list of current service health events in the tenant from Azure Resource Health",
+      "description": "Retrieves a list of current service health events in the tenant from Azure Resource Health based on the query start time and other filter criteria that you have specified.",
       "category": "investigation",
       "annotation": "get_event_list_for_tenant_id",
       "enabled": true,
@@ -689,7 +689,7 @@
           "type": "text",
           "name": "query_start_time",
           "value": "",
-          "description": "Specifies from when to return events, based on the lastUpdateTime property"
+          "description": "Select a date from when to return events, based on the lastUpdateTime property."
         },
         {
           "title": "Filter",
@@ -700,7 +700,7 @@
           "name": "filter",
           "value": "",
           "placeholder": "eg: name eq 'Current'",
-          "description": "Use filter expressions to filter and return only those results that match the expressions specified."
+          "description": "Specify filter expressions to filter and return only those results that match the specified expressions."
         }
       ]
     }
