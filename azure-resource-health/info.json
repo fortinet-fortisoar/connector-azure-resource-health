@@ -9,7 +9,7 @@
   "category": "IT Service Management",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/azure-resource-health/501/azure-resource-health-v1-0-0",
   "configuration": {
     "fields": [
       {

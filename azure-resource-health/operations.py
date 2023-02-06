@@ -35,7 +35,7 @@ def api_request(method, endpoint, connector_info, config, params={}, data={}, he
             else:
                 if response.text != "":
                     err_resp = response.json()
-                    failure_msg = err_resp['error']['message']
+                    failure_msg = err_resp.get("error", {}).get("message") or err_resp.get("message")
                     error_msg = 'Response [{0}:{1} Details: {2}]'.format(response.status_code, response.reason,
                                                                          failure_msg if failure_msg else '')
                 else:
